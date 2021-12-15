@@ -1,0 +1,16 @@
+expo cli (npm install -g expo-cli)
+react native cli
+expo stack
+React DOM vs. React Native
+    <p>,<div>,<img> -> <Text>, <View>, <Image>;
+    window, document -> Dimension, Vibration
+    localStorage, sessionSotrate, cookies -> AsyncStorage
+    .css file -> css object
+    layout defaul->flex layout , direction column
+    navigation: tab, stack
+    sensors api: geolocation, gyroscope, accelerometer, device monitor,...
+    
+expo init AwesomeProject
+
+cd AwesomeProject
+npm start # you can also use: expo start
