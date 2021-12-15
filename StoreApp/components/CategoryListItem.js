@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
         shadowOffset: {width: 0, height: 0},
         elevation: 3,   //for android
+        marginBottom: 10,
 
     },
     categoryImage:{
@@ -30,10 +31,12 @@ const styles = StyleSheet.create({
 });
 
 export default function CategoryListItem(props){
+    const {title, image} = props;
+    // console.log(props);
     return(
         <View style={styles.container}>
-            <Text style={styles.title}>CategoryListItem</Text>
-            <Image style={styles.categoryImage} source={SkiiImage}></Image>
+            <Text style={styles.title}>{title}</Text>
+            <Image style={styles.categoryImage} source={image}></Image>
         </View>
     )
 }
