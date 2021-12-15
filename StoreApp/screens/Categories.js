@@ -34,7 +34,7 @@ export default class Categories extends React.Component {
         <FlatList data={categories} 
           renderItem={({item})=><CategoryListItem category={item}></CategoryListItem>}  
           keyExtractor={item=>item.id} 
-          contentContainerStyle={{paddingLeft: 16, paddingRight: 16}}
+          contentContainerStyle={styles.container}
         >
         </FlatList>
         {/* <ScrollView style={{paddingLeft: 16, paddingRight: 16}}>
@@ -56,10 +56,7 @@ export default class Categories extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
+    paddingTop: 8,
     paddingLeft: 8,
     paddingRight: 8,
   },
