@@ -3,15 +3,13 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default class Category extends React.Component {
-  constructor(props){
-    super(props);
-  }
-
+  static navigationOptions={
+    title: "Category"
+  };
   render(){
-    const {categories} = this.state;
     return (
       <View>
-        Category
+        <Text>Category</Text> 
       </View>
     );
   }

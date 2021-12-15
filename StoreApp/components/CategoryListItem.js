@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
-import {View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import SkiiImage from '../assets/ski-boots-64.png';
 
@@ -31,13 +31,11 @@ const styles = StyleSheet.create({
 });
 
 export default function CategoryListItem(props){
-    const {category} = props;
+    const {category, onPress} = props;
     // console.log(props);
     return(
         <TouchableOpacity activeOpacity={0.5}
-            onPress={()=>{
-                Alert.alert('Click');
-            }}>
+            onPress={onPress}>
             <View style={styles.container}>
                 <Text style={styles.title}>{category.name}</Text>
                 <Image style={styles.categoryImage} source={category.image}></Image>

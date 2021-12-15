@@ -28,11 +28,15 @@ export default class Categories extends React.Component {
   }
 
   render(){
+    const {navigation} = this.props;
     const {categories} = this.state;
     return (
       <View>
         <FlatList data={categories} 
-          renderItem={({item})=><CategoryListItem category={item}></CategoryListItem>}  
+          renderItem={({item})=><CategoryListItem category={item}
+          onPress={()=>navigation.navigate('Category')}>
+
+          </CategoryListItem>}  
           keyExtractor={item=>item.id} 
           contentContainerStyle={styles.container}
         >
