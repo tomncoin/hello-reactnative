@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import CategoryListItem from './components/CategoryListItem';
 
 import SkiiImage from './assets/ski-boots-64.png'; 
@@ -16,13 +16,13 @@ export default class App extends React.Component {
         {id:1, name: 'Dung cu truot tuyet', image: SkiiImage},
         {id:2, name: 'Quan ao truot tuyet', image:SkiiImage2},
         {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:4, name: 'Khac', image:''},
+        {id:4, name: 'Kinh mu', image: SkiiImage3},
+        {id:5, name: 'Kinh mu', image: SkiiImage3},
+        {id:6, name: 'Kinh mu', image: SkiiImage3},
+        {id:7, name: 'Kinh mu', image: SkiiImage3},
+        {id:8, name: 'Kinh mu', image: SkiiImage3},
+        {id:9, name: 'Kinh mu', image: SkiiImage3},
+        {id:10, name: 'Khac', image:''},
       ]
     }
   }
