@@ -1,8 +1,13 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator} from 'react-navigation-tabs';
+
 
 import Categories from './screens/Categories';
 import Category from './screens/Category';
+import Cart from './screens/Cart';
+import Orders from './screens/Orders';
+import Settings from './screens/Settings';
 
 class HomeScreen extends React.Component {
     render() {
@@ -14,7 +19,7 @@ class HomeScreen extends React.Component {
     }
   }
 
-const AppNavigator = createStackNavigator({
+const CategoryNavigator = createStackNavigator({
     Categories: {
         screen: Categories
     },
@@ -22,5 +27,31 @@ const AppNavigator = createStackNavigator({
         screen: Category
     },
 });
+CategoryNavigator.navigationOptions = {
+  tabBarLabel: "Home"
+}
 
-export default AppNavigator;
+const CartNavigator = createStackNavigator({Cart});
+CartNavigator.navigationOptions = {
+  tabBarLabel: "Cart"
+}
+
+const OrdersNavigator = createStackNavigator({Orders});
+OrdersNavigator.navigationOptions = {
+  tabBarLabel: "Orders"
+}
+
+const SettingsNavigator = createStackNavigator({Settings}); 
+SettingsNavigator.navigationOptions = {
+  tabBarLabel: "Settings"
+}
+
+
+const AppNavigation = createBottomTabNavigator({
+  CategoryNavigator,
+  CartNavigator,
+  OrdersNavigator,
+  SettingsNavigator,
+})
+
+export default AppNavigation;

@@ -33,7 +33,7 @@ export default class Categories extends React.Component {
   }
 
   componentDidMount(){
-    axios.get("http://192.168.0.136:3000/categories")
+    axios.get("/categories")
     .then(res=>{
       this.setState({
         categories: res.data

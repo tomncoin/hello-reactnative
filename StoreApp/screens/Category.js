@@ -23,7 +23,7 @@ export default class Category extends React.Component {
     const {navigation} = this.props;
     // console.error(navigation.state.params.categoryId);
 
-    axios.get("http://192.168.0.136:3000/products?category="+navigation.getParam("categoryId"))
+    axios.get("/products?category="+navigation.getParam("categoryId"))
     .then(res=>{
       this.setState({
         products: res.data
