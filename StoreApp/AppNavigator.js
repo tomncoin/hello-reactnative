@@ -1,13 +1,18 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator} from 'react-navigation-tabs';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import Categories from './screens/Categories';
 import Category from './screens/Category';
 import Cart from './screens/Cart';
 import Orders from './screens/Orders';
 import Settings from './screens/Settings';
+
+const color ={
+  Active: "#147efb",
+  Inactive: "#ccc"
+}
 
 class HomeScreen extends React.Component {
     render() {
@@ -28,22 +33,43 @@ const CategoryNavigator = createStackNavigator({
     },
 });
 CategoryNavigator.navigationOptions = {
-  tabBarLabel: "Home"
+  tabBarLabel: "Home",
+  tabBarIcon: ({focused})=>{
+    return <Icon name="ios-home"
+      size={24}
+      color={focused?color.Active:color.Inactive}
+      ></Icon>
+  },
 }
 
 const CartNavigator = createStackNavigator({Cart});
 CartNavigator.navigationOptions = {
-  tabBarLabel: "Cart"
+  tabBarLabel: "Cart",
+  tabBarIcon: ({focused})=>{
+    return <Icon name={focused?"ios-cart":"ios-cart-outline"}
+      size={24}
+      ></Icon>
+  },
 }
 
 const OrdersNavigator = createStackNavigator({Orders});
 OrdersNavigator.navigationOptions = {
-  tabBarLabel: "Orders"
+  tabBarLabel: "Orders",
+  tabBarIcon: ({focused})=>{
+    return <Icon name={focused?"ios-person":"ios-person-outline"}
+      size={24}
+      ></Icon>
+  },
 }
 
 const SettingsNavigator = createStackNavigator({Settings}); 
 SettingsNavigator.navigationOptions = {
-  tabBarLabel: "Settings"
+  tabBarLabel: "Settings",
+  tabBarIcon: ({focused})=>{
+    return <Icon name={focused?"ios-settings":"ios-settings-outline"}
+      size={24}
+      ></Icon>
+  },
 }
 
 
