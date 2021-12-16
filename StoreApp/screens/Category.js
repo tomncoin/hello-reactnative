@@ -3,9 +3,12 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 export default class Category extends React.Component {
-  static navigationOptions={
-    title: "Category"
+  static navigationOptions = ({navigation})=>{
+    return {
+      title: navigation.getParam('categoryName'),
+    };
   };
+
   render(){
     return (
       <View>

@@ -22,7 +22,7 @@ export default class Categories extends React.Component {
         {id:7, name: 'Kinh mu', image: SkiiImage3},
         {id:8, name: 'Kinh mu', image: SkiiImage3},
         {id:9, name: 'Kinh mu', image: SkiiImage3},
-        {id:10, name: 'Khac', image:''},
+        {id:10, name: 'Khac', image: SkiiImage3},
       ]
     }
   }
@@ -34,7 +34,9 @@ export default class Categories extends React.Component {
       <View>
         <FlatList data={categories} 
           renderItem={({item})=><CategoryListItem category={item}
-          onPress={()=>navigation.navigate('Category')}>
+          onPress={()=>navigation.navigate('Category',{
+            categoryName: item.name
+          })}>
 
           </CategoryListItem>}  
           keyExtractor={item=>item.id} 
