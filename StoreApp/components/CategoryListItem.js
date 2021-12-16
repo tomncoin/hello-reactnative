@@ -1,6 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
-
 import {View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 import SkiiImage from '../assets/ski-boots-64.png';
