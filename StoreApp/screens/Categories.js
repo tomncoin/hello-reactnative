@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import CategoryListItem from '../components/CategoryListItem';
 
+import axios from 'axios';
+
 import SkiiImage from '../assets/ski-boots-64.png'; 
 import SkiiImage2 from '../assets/ski.png'; 
 import SkiiImage3 from '../assets/ski_blue.png'; 
@@ -12,19 +14,34 @@ export default class Categories extends React.Component {
     super(props);
 
     this.state={
-      categories: [
-        {id:1, name: 'Dung cu truot tuyet', image: SkiiImage},
-        {id:2, name: 'Quan ao truot tuyet', image:SkiiImage2},
-        {id:3, name: 'Kinh mu', image: SkiiImage3},
-        {id:4, name: 'Kinh mu', image: SkiiImage3},
-        {id:5, name: 'Kinh mu', image: SkiiImage3},
-        {id:6, name: 'Kinh mu', image: SkiiImage3},
-        {id:7, name: 'Kinh mu', image: SkiiImage3},
-        {id:8, name: 'Kinh mu', image: SkiiImage3},
-        {id:9, name: 'Kinh mu', image: SkiiImage3},
-        {id:10, name: 'Khac', image: SkiiImage3},
-      ]
-    }
+    //   categories: [
+    //     {id:1, name: 'Dung cu truot tuyet', image: SkiiImage},
+    //     {id:2, name: 'Quan ao truot tuyet', image:SkiiImage2},
+    //     {id:3, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:4, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:5, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:6, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:7, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:8, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:9, name: 'Kinh mu', image: SkiiImage3},
+    //     {id:10, name: 'Khac', image: SkiiImage3},
+    //   ]
+      categories: []
+    };
+
+
+  }
+
+  componentDidMount(){
+    axios.get("http://192.168.0.136:3000/categories")
+    .then(res=>{
+      this.setState({
+        categories: res.data
+      })
+    })
+    .catch(error=>{
+      console.error(error)
+    });
   }
 
   render(){
@@ -35,7 +52,8 @@ export default class Categories extends React.Component {
         <FlatList data={categories} 
           renderItem={({item})=><CategoryListItem category={item}
           onPress={()=>navigation.navigate('Category',{
-            categoryName: item.name
+            categoryName: item.name,
+            categoryId: item.id
           })}>
 
           </CategoryListItem>}  

@@ -8,11 +8,13 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "react-devtools": "react-devtools"
+    "react-devtools": "react-devtools",
+    "mock-server": "json-server --host 192.168.0.136 ./mock-db/db.json"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.0.6",
+    "axios": "^0.24.0",
     "expo": "~43.0.2",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "json-server": "^0.17.0",
     "react-devtools": "^4.22.1"
   },
   "private": true
