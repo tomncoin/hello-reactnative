@@ -31,12 +31,14 @@ const styles = StyleSheet.create({
 export default function CategoryListItem(props){
     const {category, onPress} = props;
     // console.log(props);
+    // console.error('assets:'+category.image);
     return(
         <TouchableOpacity activeOpacity={0.5}
             onPress={onPress}>
             <View style={styles.container}>
                 <Text style={styles.title}>{category.name}</Text>
-                <Image style={styles.categoryImage} source={category.image}></Image>
+                {/* <Image style={styles.categoryImage} source={{uri: 'assets:'+category.image}}></Image> */}
+                <Image style={styles.categoryImage} source={{uri: 'https://cdn-icons-png.flaticon.com/512/99/99607.png'}}></Image>
             </View>
         </TouchableOpacity>
     )
