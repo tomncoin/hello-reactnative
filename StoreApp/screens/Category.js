@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import axios from 'axios';
 import ProductListItem from '../components/ProductListItem';
 
+
+
 export default class Category extends React.Component {
   constructor(props){
     super(props);
