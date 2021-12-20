@@ -20,10 +20,12 @@ export default class Cart extends React.Component {
             {
               ({cartItems})=>(
                <ScrollView style={styles.content}>
+
                 {cartItems.map(product=>(
                   <CartListItem product={product} key={product.id} ></CartListItem>
                 )
                 )}
+
                 <View style={styles.totalSection}>
                   <Text style={styles.totalSectionTitle}>Totals</Text>
                   <View style={styles.subTotalRow}>
@@ -60,8 +62,15 @@ export default class Cart extends React.Component {
 
 const styles= StyleSheet.create({
   content:{
-    marginHorizontal:  29,
+    // marginHorizontal:  29,
     paddingBottom: 32,
+    paddingLeft: 16, paddingRight: 16,
+  },
+  product:{
+    borderRadius: 4,
+    marginBottom: 10,
+    backgroundColor: "#fff",
+    overflow: "hidden",
   },
   totalSection:{
     marginTop:32,
