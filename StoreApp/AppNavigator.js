@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator} from 'react-navigation-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,6 +8,10 @@ import Category from './screens/Category';
 import Cart from './screens/Cart';
 import Orders from './screens/Orders';
 import Settings from './screens/Settings';
+
+import { CartContext } from './contexts/Cart';
+import CartLabel from './components/CartLabel';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 
 const color ={
   Active: "#147efb",
@@ -32,6 +36,7 @@ const CategoryNavigator = createStackNavigator({
         screen: Category
     },
 });
+
 CategoryNavigator.navigationOptions = {
   tabBarLabel: "Home",
   tabBarIcon: ({focused})=>{
@@ -42,15 +47,29 @@ CategoryNavigator.navigationOptions = {
   },
 }
 
-const CartNavigator = createStackNavigator({Cart});
+
+
+
+const CartNavigator = createStackNavigator({
+  Cart:{
+    screen: Cart,
+    navigationOptions:{
+  
+    }
+  },
+});
+
 CartNavigator.navigationOptions = {
-  tabBarLabel: "Cart",
+  tabBarLabel:()=><CartLabel></CartLabel>
+  ,
   tabBarIcon: ({focused})=>{
     return <Icon name={focused?"ios-cart":"ios-cart-outline"}
       size={24}
       ></Icon>
   },
 }
+
+
 
 const OrdersNavigator = createStackNavigator({Orders});
 OrdersNavigator.navigationOptions = {

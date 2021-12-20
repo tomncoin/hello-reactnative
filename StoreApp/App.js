@@ -4,12 +4,12 @@ import { StyleSheet,View,Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import 'react-native-gesture-handler';
 import axios from 'axios';
-// import { CartContext } from './contexts/Cart';
+import { CartProvider } from './contexts/Cart';
 
 import AppNavigator from './AppNavigator';
 
 
-axios.defaults.baseURL = "http://192.168.0.136:3000";
+axios.defaults.baseURL = "http://192.168.0.133:3000";
 
 const AppContainer = createAppContainer(AppNavigator);
  
@@ -17,15 +17,17 @@ import Categories from './screens/Categories';
 
 export default class App extends React.Component {
   constructor(props){
-    super(props);
+    super(props); 
   }
   
   render(){
     
 
     return (
+      <CartProvider>
         <AppContainer>
         </AppContainer>
+      </CartProvider>
     );
   }
 }
