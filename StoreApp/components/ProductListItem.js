@@ -56,7 +56,7 @@ export default function ProductListItem(props) {
     }
 
     const {product, navigation} = props;
-    console.log(this.context);
+    // console.log(this.context);
 
     return(
             <View style={styles.shadow}>

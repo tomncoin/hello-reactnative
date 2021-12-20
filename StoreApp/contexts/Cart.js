@@ -2,7 +2,6 @@ import  React, { Component } from "react";
 import { View, Alert } from "react-native";
 
 export const CartContext = React.createContext({
-    addtoCartClick: (product) => {},
     addToCart: (product) => {},
     cartItems: [],
     demo: "xy"
@@ -16,24 +15,34 @@ export class CartProvider extends Component{
             cartItems: []
         };
 
-        this.addtoCartClick = this.addtoCartClick.bind(this);
         this.addToCart = this.addToCart.bind(this);
     }
 
-    addtoCartClick(product){
-        Alert.alert('Add success to cart.')
-        
-        this.setState({
-            cartItems: this.state.cartItems.concat(product)
-        });
-
-    }
-
     addToCart = (product) => {
-        console.log('Add success to cart.');
-        Alert.alert('Add success to cart.')
+        // console.log('Add success to cart.');
+        // Alert.alert('Add success to cart.')
 
-        const list = [...this.state.cartItems, product];
+        const {cartItems} =this.state;
+        const index = cartItems.map(function(x) {return x.id; }).indexOf(product.id);
+
+        let list = [...cartItems, {
+            ...product,
+            quantity: 1
+          }];
+
+        if(index>-1){
+            
+            list = [
+                ...cartItems.slice(0, index),
+                {
+                  ...cartItems[index],
+                  quantity: cartItems[index].quantity+1
+                },
+                ...cartItems.slice(index+1)
+              ] ;
+            
+        }
+        
         this.setState({cartItems: list});
       };
 
@@ -42,7 +51,6 @@ export class CartProvider extends Component{
                 <CartContext.Provider value={
                     {
                         addToCart: this.addToCart,
-                        addtoCartClick: this.addtoCartClick,
                         cartItems: this.state.cartItems,
                         demo: "xx123"
                     }
