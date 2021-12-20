@@ -31,12 +31,14 @@ export default class Cart extends React.Component {
                   <View style={styles.subTotalRow}>
                     <Text style={styles.subTotalTitle}>Sub Total</Text>
                     <View style={styles.devider}></View>
-                    <Text style={styles.subTotalAmount}>$300.00</Text>
+                    <Text style={styles.subTotalAmount}>${
+                    cartItems.reduce((n, {price, quantity}) => n + (price*quantity), 0)
+                    }</Text>
                   </View>
                   <View style={styles.subTotalRow}>
                     <Text style={styles.subTotalTitle}>Shipping</Text>
                     <View style={styles.devider}></View>
-                    <Text style={styles.subTotalAmount}>$10.00</Text>
+                    <Text style={styles.subTotalAmount}>$0.00</Text>
                   </View>
                   <View style={styles.couponSection}>
                     <TextInput style={styles.placeholder}

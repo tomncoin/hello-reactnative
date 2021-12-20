@@ -1,8 +1,11 @@
-import React from 'react';
+import React ,{useContext} from 'react';
 import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { CartContext } from "../contexts/Cart";
 
-export default function (props){
+export default function CartListItem(props){
+    this.context  = useContext(CartContext);
+
     const {product} = props;
 
     return(
@@ -13,21 +16,23 @@ export default function (props){
                 </View>
                 <View style={styles.titleSection}>
                     <View>
-                        <Text>Title</Text>
-                        <Text>Sub Title</Text>
+                        <Text>{product.name}</Text>
+                        {/* <Text>{product.description}</Text> */}
                     </View>
                     <View style={{flexDirection:'row',marginTop:40,}}>
                         {/* <Text style={styles.caption}>-</Text> */}
-                        <Icon name={"ios-remove"} size={24} style={{color:"orange"}}></Icon>
+                        <Icon name={"ios-remove"} size={24} style={{color:"orange"}}
+                         onPress={()=>this.context.updateQuantity(product)}></Icon>
                         <Text style={styles.caption}>{product.quantity}</Text>
-                        <Icon name={"ios-add"} size={24} style={{color:"orange"}}></Icon>
+                        <Icon name={"ios-add"} size={24} style={{color:"orange"}}
+                         onPress={()=>this.context.addToCart(product)}></Icon>
                         {/* <Text style={styles.caption}>+</Text> */}
                     </View>
                 </View>
                 <View>
                     <Text style={styles.price}>${product.price}</Text>
                     <View style={styles.priceRow}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this.context.removeFromCart(product)}>
                         <Icon name={"ios-trash"}
                         size={24} style={{color:"red"}}
                         ></Icon>
