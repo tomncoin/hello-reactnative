@@ -4,16 +4,18 @@ import { StyleSheet,View,Text } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import 'react-native-gesture-handler';
 import axios from 'axios';
-import { CartProvider } from './contexts/Cart';
+import mongoose from 'mongoose';
 
 import AppNavigator from './AppNavigator';
+import { CartProvider } from './contexts/Cart';
+import Categories from './screens/Categories';
 
 
 axios.defaults.baseURL = "http://192.168.0.133:3000";
 
 const AppContainer = createAppContainer(AppNavigator);
- 
-import Categories from './screens/Categories';
+
+// mongoose.connect("mongodb+srv://hellonode:xyz123@cluster0.awdsq.mongodb.net/nodejs-demo?retryWrites=true&w=majority");
 
 export default class App extends React.Component {
   constructor(props){

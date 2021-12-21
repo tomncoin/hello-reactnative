@@ -5,6 +5,8 @@ import CategoryListItem from '../components/CategoryListItem';
 
 import axios from 'axios';
 
+import Category from '../models/category.model';
+
 import SkiiImage from '../assets/ski-boots-64.png'; 
 import SkiiImage2 from '../assets/ski.png'; 
 import SkiiImage3 from '../assets/ski_blue.png'; 
@@ -42,6 +44,12 @@ export default class Categories extends React.Component {
     .catch(error=>{
       console.error(error)
     });
+
+    // Category.find().then(function(categories){
+    //   this.setState({
+    //           categories: categories
+    //    })
+    // });
   }
 
   render(){

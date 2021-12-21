@@ -36,6 +36,8 @@ export default class Category extends React.Component {
     });
   }
 
+  
+
   render(){
     const {products} = this.state;
     return (

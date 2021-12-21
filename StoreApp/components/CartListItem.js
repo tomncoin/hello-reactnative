@@ -3,45 +3,53 @@ import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { CartContext } from "../contexts/Cart";
 
-export default function CartListItem(props){
-    this.context  = useContext(CartContext);
+export default class CartListItem extends React.Component{
+    constructor(props){
+        super(props);
+    }
 
-    const {product} = props;
+    static contextType  = CartContext;
 
-    return(
-        <View style={styles.shadow}>
-            <View style={styles.container}>
-                <View>
-                    <Image style={styles.img} source={{uri: product.images[0].url}}></Image>
-                </View>
-                <View style={styles.titleSection}>
+    render()
+    {
+        const {product} = this.props;
+
+        return(
+            <View style={styles.shadow}>
+                <View style={styles.container}>
                     <View>
-                        <Text>{product.name}</Text>
-                        {/* <Text>{product.description}</Text> */}
+                        <Image style={styles.img} source={{uri: product.images[0].url}}></Image>
                     </View>
-                    <View style={{flexDirection:'row',marginTop:40,}}>
-                        {/* <Text style={styles.caption}>-</Text> */}
-                        <Icon name={"ios-remove"} size={24} style={{color:"orange"}}
-                         onPress={()=>this.context.updateQuantity(product)}></Icon>
-                        <Text style={styles.caption}>{product.quantity}</Text>
-                        <Icon name={"ios-add"} size={24} style={{color:"orange"}}
-                         onPress={()=>this.context.addToCart(product)}></Icon>
-                        {/* <Text style={styles.caption}>+</Text> */}
+                    <View style={styles.titleSection}>
+                        <View>
+                            <Text>{product.name}</Text>
+                            {/* <Text>{product.description}</Text> */}
+                        </View>
+                        <View style={{flexDirection:'row',marginTop:40,}}>
+                            {/* <Text style={styles.caption}>-</Text> */}
+                            <Icon name={"ios-remove"} size={24} style={{color:"orange"}}
+                            onPress={()=>this.context.updateQuantity(product)}></Icon>
+                            <Text style={styles.caption}>{product.quantity}</Text>
+                            <Icon name={"ios-add"} size={24} style={{color:"orange"}}
+                            onPress={()=>this.context.addToCart(product)}></Icon>
+                            {/* <Text style={styles.caption}>+</Text> */}
+                        </View>
                     </View>
-                </View>
-                <View>
-                    <Text style={styles.price}>${product.price}</Text>
-                    <View style={styles.priceRow}>
-                    <TouchableOpacity onPress={()=>this.context.removeFromCart(product)}>
-                        <Icon name={"ios-trash"}
-                        size={24} style={{color:"red"}}
-                        ></Icon>
-                    </TouchableOpacity>
+                    <View>
+                        <Text style={styles.price}>${product.price}</Text>
+                        <View style={styles.priceRow}>
+                        <TouchableOpacity >
+                            <Icon name={"ios-trash"}
+                            size={24} style={{color:"red"}}
+                            onPress={()=>this.context.removeFromCart(product)}
+                            ></Icon>
+                        </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </View>
-        </View>
-    );
+        );
+    }
 }
 
 
