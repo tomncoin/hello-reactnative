@@ -38,10 +38,9 @@ export default class CartListItem extends React.Component{
                     <View>
                         <Text style={styles.price}>${product.price}</Text>
                         <View style={styles.priceRow}>
-                        <TouchableOpacity >
+                        <TouchableOpacity onPress={()=>this.context.removeFromCart(product)}>
                             <Icon name={"ios-trash"}
                             size={24} style={{color:"red"}}
-                            onPress={()=>this.context.removeFromCart(product)}
                             ></Icon>
                         </TouchableOpacity>
                         </View>

@@ -95,6 +95,8 @@ export class CartProvider extends Component{
         const {cartItems} =this.state;
         const index = cartItems.map(function(x) {return x.id; }).indexOf(product.id);
 
+        let list = cartItems;
+
         if(index>-1){
             
             list = [
